@@ -7,7 +7,7 @@
           <figure class="image is-48x48 has-background-white">
             <img
               src="{{ site.url }}{{ page.image_path }}"
-              alt="Find & Replace"
+              alt="{{ page.title}}"
             />
           </figure>
         </div>
@@ -20,46 +20,104 @@
 
       <div class="columns">
         <div class="column is-6">
-          <p class="subtitle is-4 has-text-grey-lighter">
-            {{ page.solution_description_p1 }}
+          <p class="subtitle is-5 has-text-grey-lighter">
+            {{ page.introduction }}
           </p>
-          <p class="subtitle is-4 has-text-grey-lighter">
-            {{ page.solution_description_p2 }}
+          <p class="subtitle is-5 has-text-grey-lighter"
+          {% if page.arguments %}style="margin-bottom: 0px;"{% endif %}>
+            {{ page.whatyouget }}{% if page.arguments %}:{% endif %}
+
+            {% if page.arguments %}<dl class="has-text-grey-lighter">{% endif %}
+              {% for point in page.arguments %}
+                <dt class="is-size-5">- {{ point.name }}:</dt>
+                <dd style="margin-left: 20px;" class="is-size-5">  {{ point.arg }}</dd>
+              {% endfor %}
+            {% if page.arguments %}</dl>{% endif %}
           </p>
+
         </div>
         <div id="video" class="column is-6">
-          <figure class="is-16by9">
-            <video controls class="has-ratio" width="640" height="360">
-              <source src="{{ site.url }}{{ page.video_path }}.webm" type="video/webm" />
-              <source src="{{ site.url }}{{ page.video_path }}.mp4" type="video/mp4" />
-              <source src="{{ site.url }}{{ page.video_path }}.mov" type="video/mov" />
-            </video>
-          </figure>
+          <div class="card">
+            <div class="card-image">
+              <figure class="is-16by9">
+                <video controls class="has-ratio" >
+                  <source src="{{ site.url }}{{ page.video_path }}.mp4" type="video/mp4" />
+                  <source src="{{ site.url }}{{ page.video_path }}.mov" type="video/mov" />
+                </video>
+              </figure>
+            </div>
+          </div>
         </div>
       </div>
 
+      {% if page.images %}
+      <div class="columns is-centered">
+        {% for image in page.images %}
+        <div class="column is-one-quarter">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-16by9">
+                <img
+                  src="{{ site.url }}{{ image.path }}"
+                  alt="{{ image.alt }}"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.monday_install_button != '' %}
+      <div id="install" class="mt-6">
+        <h3 class="title is-3">Installation</h3>
+        <p class="subtitle is-5 has-text-grey-lighter mt-3">
+          Quickly install the app using this button:
+        </p>
+        {{ page.monday_install_button }}
+
+      </div>
+      {% endif %}
+
+
       <div id="pricing" class="mt-6">
         <h3 class="title is-3">Pricing</h3>
-        <p class="subtitle is-4 has-text-grey-lighter">
-          <div class="columns">
-            <div class="column is-one-quarter">
-              <div class="card has-background-grey-dark">
-                <div class="card-content pb-0">
-                  <p class="is-size-4">Wise</p>
-                  <br>
-                  <ul style="list-style-type: square;">
-                    <li>14 day free trial.</li>
-                    <li><span class="is-size-3 has-text-light">$4</span>/month (billed monthly)</li>
-                    <li><span class="is-size-3 has-text-light">$3</span>/month (billed yearly)</li>
-                  </ul>
-                </div>
-                <div class="card-content">
-                  <div class="content is-size-5">
-                    Completely access to the tool and all the updates. Just $3/month for speeding up your productivity.
+        <p class="subtitle is-5 has-text-grey-lighter mt-3">
+          {% if page.pricing.f14d_trials %}
+          We offer a 14 day free trial! If you like the app, if you think it could be useful for your team, we offer the following plans:
+          {% endif %}
+
+          <div class="columns is-centered">
+            {% for plan in page.pricing.plans %}
+              <div class="column is-one-fifth">
+                <div class="card">
+                  <header class="card-header has-background-grey">
+                    <p class="card-header-title">{{ plan.name }}</p>
+                  </header>
+                  <div class="card-content has-background-white">
+
+                      <ol style="list-style-type: square;">
+                        <li class="has-text-grey">Seats: {% if plan.seats != 'Unlimited' %}Up to {% endif %}{{plan.seats}}</li>
+                        <li class="has-text-grey">Price:
+                          <ul style="list-style-type: circle;" class="ml-3">
+                            <li><span class="has-text-grey-dark">${{plan.yearly}}</span>/month (billed yearly)</li>
+                            <li><span class="has-text-grey-dark">${{plan.monthly}}</span>/month (billed monthly)</li>
+                          </ul>
+                        </li>
+                        <li class="has-text-grey">Features:
+                          <ul style="list-style-type: circle;" class="ml-3">
+                            {% for arg in plan.features %}
+                            <li>{{ arg }}</li>
+                            {% endfor %}
+                          </ul>
+                        </li>
+                      </ol>
+
                   </div>
                 </div>
               </div>
-            </div>
+            {% endfor %}
           </div>
 
         </p>
@@ -67,118 +125,59 @@
 
       <div id="terms_of_service" class="mt-6">
         <h3 class="title is-3">Terms of Service</h3>
-        <p class="subtitle is-4 has-text-grey-lighter">
-          <p>
-            <h5 class="title is-5 mt-5">1. Introduction</h5>
-            Welcome to Find and Replace app ("the App"), a monday.com application that enables users to search and replace text in WorkDocs documents.
-            By installing, accessing, or using the App, you agree to be bound by these Terms of Service ("Terms").
-            If you do not agree with these Terms, do not use the App.
-          </p>
-          <p>
-            <h5 class="title is-5 mt-5">2. Acceptance of Terms</h5>
-            By using the App, you affirm that you have the legal capacity to enter into these Terms and
-            that you comply with all applicable laws and regulations.
-            If you are using the App on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.
-          </p>
-          <p>
-            <h5 class="title is-5 mt-5">3. Description of Service</h5>
-            The App provides a tool for users of monday.com to search for and replace text within WorkDocs documents.
-            It does not store, retain, or modify content outside of the user's control within monday.com.
-            The App requires appropriate permissions to access WorkDocs documents, and by using the App, you grant such permissions.
-          </p>
-          <p>
-            <h5 class="title is-5 mt-5">4. User Responsibilities</h5>
-            You agree to:
-            - Use the App only for lawful purposes and in compliance with monday.com’s terms and policies.
-            - Ensure you have the necessary permissions to modify WorkDocs content.
-            - Not use the App to introduce harmful code, automate unauthorized modifications, or violate intellectual property rights.
-          </p>
-          <p>
-            <h5 class="title is-5 mt-5">5. Data Privacy and Security</h5>
-            The App does not store or collect user data outside of monday.com.
-            All processing occurs within monday.com’s platform, and any changes made via the App remain within the user’s workspace.
-            We do not share or sell user data. For more details on how monday.com handles data, please refer to monday.com’s privacy policy.
-          </p>
-          <p>
-            <h5 class="title is-5 mt-5">6. Limitation of Liability</h5>
-            To the maximum extent permitted by law, [Company Name] is not liable for any indirect, incidental,
-            special, or consequential damages, including but not limited to data loss, unauthorized modifications,
-            or business disruptions resulting from the use of the App.
-          </p>
-          <p>
-            <h5 class="title is-5 mt-5">7. Warranty Disclaimer</h5>
-            The App is provided "as is" without any warranties, express or implied.
-            We do not guarantee that the App will be error-free, uninterrupted, or meet your specific needs.
-          </p>
-          <p>
-            <h5 class="title is-5 mt-5">8. Modification of Terms</h5>
-            We reserve the right to update or modify these Terms at any time.
-            Changes will be posted within the App or on our website, and continued use of the App after modifications
-            constitutes acceptance of the revised Terms.
-          </p>
-          <p>
-            <h5 class="title is-5 mt-5">9. Contact Information</h5>
-            For any questions or concerns about these Terms, please contact us at montools@proton.me or visit our website at montools.github.io.
-          </p>
-        </p>
+        <ol class="subtitle is-4 has-text-grey-lighter" start="1">
+
+          {% for term in page.terms_of_service %}
+          <li>
+            <h5 class="title is-5 mt-5">{{ term.section }}</h5>
+            <div class="is-size-6">{{ term.arg }}{% if term.arg_type == 'list' %}:{% endif %}</div>
+            {% if term.arg_type == 'list' %}
+              <ol class="is-size-6" type="i">
+                {{ term.intro }}
+                {% for arg in term.args %}
+                  <li>{{ arg }}</li>
+                {% endfor %}
+              </ol>
+            {% endif %}
+            </li>
+          {% endfor %}
+
+        </ol>
       </div>
 
       <div id="privacy_policy" class="mt-6">
         <h3 class="title is-3">Privacy Policy</h3>
-        <p class="subtitle is-4 has-text-grey-lighter">
-          <p>
-            <h5 class="title is-5 mt-5">1. Introduction</h5>
-            Welcome to Montools Find & Replace for WorkDocs ("the App").
-            This Privacy Policy outlines how we handle user data when you use the App
-            within monday.com.
-          </p>
+        <ol class="subtitle is-4 has-text-grey-lighter" start="1">
 
-          <p>
-            <h5 class="title is-5 mt-5"> 2. Data Collection & Usage</h5>
-            The App does not collect, store, or transmit any personal or document data
-            outside of monday.com. All search and replace actions occur within the
-            monday.com environment without external data processing.
-          </p>
+          {% for term in page.privacy_policy %}
+          <li>
+            <h5 class="title is-5 mt-5">{{ term.section }}</h5>
+            <div class="is-size-6">{{ term.arg }}{% if term.arg_type == 'list' %}:{% endif %}</div>
+            {% if term.arg_type == 'list' %}
+              <ol start="i">
+                {{ term.intro }}
+                {% for arg in term.args %}
+                  <li>{{ arg }}</li>
+                {% endfor %}
+              </ol>
+            {% endif %}
+            </li>
+          {% endfor %}
 
-          <p>
-            <h5 class="title is-5 mt-5">3. Permissions & Access</h5>
-            To function correctly, the App requires access to monday.com WorkDocs.
-            This access is used solely for executing search and replace operations as initiated by the user.
-            The App does not retain, analyze, or share document data.
-          </p>
+        </ol>
+      </div>
 
-          <p>
-            <h5 class="title is-5 mt-5">4. Data Security</h5>
-            We follow best practices to ensure that user data remains secure.
-            The App operates entirely within monday.com's infrastructure and does not introduce
-            additional data storage, logging, or external processing.
-          </p>
+      <div id="faqs" class="mt-6">
+        <h3 class="title is-3">Frequently asked questions</h3>
+        <ol style="list-style-type: square;">
 
-          <p>
-            <h5 class="title is-5 mt-5">5. Third-Party Integrations</h5>
-            The App does not integrate with external third-party services and does not transmit
-            any user data outside of monday.com.
-          </p>
-
-          <p>
-            <h5 class="title is-5 mt-5">6. User Rights & Control</h5>
-            As the App does not store any personal or document data, users do not need to request
-            data deletion or modification. All content remains under the control of the user
-            within their monday.com account.
-          </p>
-
-          <p>
-            <h5 class="title is-5 mt-5">7. Changes to This Policy</h5>
-            We may update this Privacy Policy from time to time. Any changes will be communicated
-            within the App or through our website. Continued use of the App after changes constitutes
-            acceptance of the updated policy.
-          </p>
-
-          <p>
-            <h5 class="title is-5 mt-5">8. Contact Information</h5>
-            For any questions regarding this Privacy Policy, please contact us at <email>montools@proton.me</email>.
-          </p>
-        </p>
+          {% for faq in page.faqs %}
+          <li>
+            <h5 class="title is-5 mt-5">{{ faq.question }}</h5>
+            <div class="is-size-6">{{ faq.answer }}</div>
+          </li>
+          {% endfor %}
+        </ol>
       </div>
 
     </div>
