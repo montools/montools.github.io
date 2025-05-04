@@ -119,7 +119,7 @@ privacy_policy:
 - section: Data Security
   arg: We follow best practices to ensure that user data remains secure.  The App operates entirely within monday.com's infrastructure and does not introduce additional data storage, logging, or external processing.
 - section: Third-Party Integrations
-  arg: The App does not integrate with external third-party services and does not transmit any user data outside of monday.com.
+  arg: The App does not integrate with external third-party domains/services/products and does not transmit any user data outside of monday.com.
 - section: User Rights & Control
   arg: As the App does not store any personal or document data, users do not need to request data deletion or modification. All content remains under the control of the user within their monday.com account.
 - section: Changes to This Policy
