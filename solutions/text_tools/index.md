@@ -1,6 +1,6 @@
 ---
 layout: solution
-title: Text Tools
+title: Text Tools for Workdocs
 image_path: "/assets/images/text_tools/text_tools3_1.png"
 video_path: "/assets/media/text_tools/text_tools_full"
 introduction: This app is designed to make formatting, editing, and working with text easier, faster, and more efficient.
@@ -36,6 +36,7 @@ pricing:
   f14d_trials: true
   plans:
   - name: Solo
+    app_plan_id: solo
     seats: 5
     monthly: 0
     yearly: 0
@@ -44,6 +45,7 @@ pricing:
     - Unlimited Transformations
     - Unlimited Replace text
   - name: Team
+    app_plan_id: team
     seats: 15
     monthly: 6
     yearly: 5
@@ -52,6 +54,7 @@ pricing:
     - Unlimited Transformations
     - Unlimited Replace text
   - name: Business
+    app_plan_id: business
     seats: 50
     monthly: 29
     yearly: 20
@@ -60,6 +63,7 @@ pricing:
     - Unlimited Transformations
     - Unlimited Replace text
   - name: Pro
+    app_plan_id: pro
     seats: 250
     monthly: 69
     yearly: 50
@@ -68,6 +72,7 @@ pricing:
     - Unlimited Transformations
     - Unlimited Replace text
   - name: Enterprise
+    app_plan_id: enterprise
     seats: Unlimited
     monthly: 299
     yearly: 200
