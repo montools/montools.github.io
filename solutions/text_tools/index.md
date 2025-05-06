@@ -47,8 +47,8 @@ pricing:
   - name: Team
     app_plan_id: team
     seats: 15
-    monthly: 6
-    yearly: 5
+    monthly: 5
+    yearly: 3
     features:
     - Unlimited Reviews
     - Unlimited Transformations
@@ -56,8 +56,8 @@ pricing:
   - name: Business
     app_plan_id: business
     seats: 50
-    monthly: 29
-    yearly: 20
+    monthly: 8
+    yearly: 5
     features:
     - Unlimited Reviews
     - Unlimited Transformations
@@ -65,8 +65,8 @@ pricing:
   - name: Pro
     app_plan_id: pro
     seats: 250
-    monthly: 69
-    yearly: 50
+    monthly: 13
+    yearly: 8
     features:
     - Unlimited Reviews
     - Unlimited Transformations
@@ -74,8 +74,8 @@ pricing:
   - name: Enterprise
     app_plan_id: enterprise
     seats: Unlimited
-    monthly: 299
-    yearly: 200
+    monthly: 21
+    yearly: 13
     features:
     - Unlimited Reviews
     - Unlimited Transformations
