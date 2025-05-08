@@ -139,6 +139,25 @@ faqs:
 - question: Where can I access the app?
   answer: The app becomes visible when you select text in a Workdoc. It appears in the contextual toolbar above the selection.
 
+- question: How this app calculates the sentences count? I get some differences when comparing with other tools.
+  answer: |
+    Yeap, different tools could arise different counts depending how they process the information. 
+    The process in this app is the following: 
+    <ol style="padding-left: 20px;">
+      <li>trim the spaces from the text</li> 
+      <li>then split the text by the delimiters '.!?' using the regular expression <b>`/([.!?]\s*)/g`</b></li>
+      <li>and finally counting the result, which is considered the count of sentences</li>
+    </ol>
+
+- question: How this app calculates the words count? I get some differences when comparing with other tools.
+  answer: |
+    Yeap, different tools could arise different counts depending how they process the information. 
+    The process in this app is the following:
+    <ol style="padding-left: 20px;">
+     <li>trim the spaces from the text</li>  
+    <li>then split the text by set of consecutive alphabetical characters joining '/' and '-' symbols (for including composed words like "third-party" and "XLS/CSV") using the regular expression <b>`/\b[a-zA-Z]+(?:[-/][a-zA-Z]+)*\b/g`</b></li> 
+    <li>and finally counting the result, which is considered the count of words</li> 
+
 - question: What formatting options are available?
   answer: You can convert selected text to UPPERCASE, lowercase, Sentence case, Title Case, Slug, or Snake case format.
 

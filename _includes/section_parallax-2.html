@@ -174,7 +174,7 @@
           {% for faq in page.faqs %}
           <li>
             <h5 class="title is-5 mt-5">{{ faq.question }}</h5>
-            <div class="is-size-6">{{ faq.answer }}</div>
+            <div class="is-size-6">{{ faq.answer | safeHTML }}</div>
           </li>
           {% endfor %}
         </ol>
