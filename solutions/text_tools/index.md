@@ -164,8 +164,13 @@ faqs:
 - question: What analysis features does the app include?
   answer: The app provides word count, character count, sentence count, and estimated reading time.
 
-- question: Can I search and replace text with this app?
-  answer: Yes. The app includes a simple find-and-replace feature for modifying selected content.
+- question: Can I find and replace text with this app?
+  answer: |
+    Yes. The app includes a simple find-and-replace feature for modifying selected content.
+    Notice that in the very rare case when the selected content has mixed formating options 
+    like bold, italic, underline, etc. this find-and-replace feature could fail. 
+    We are working on a fixing solution for this corner cases. 
+    In the most common case where the selected content is has the same format, it works as expected!
 
 - question: Does this app change the entire document?
   answer: No. The app only affects the portion of text you have selected.
