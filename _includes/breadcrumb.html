@@ -1,0 +1,13 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="{{ site.url }}/">Home</a></li>
+    {% if page.url contains '/solutions/' %}
+      <li><a href="{{ site.url }}/solutions/">Solutions</a></li>
+      {% if page.url != '/solutions/' and page.url != '/solutions/index.html' %}
+        <li class="is-active"><a href="#" aria-current="page">{{ page.title }}</a></li>
+      {% endif %}
+    {% else %}
+      <li class="is-active"><a href="#" aria-current="page">{{ page.title }}</a></li>
+    {% endif %}
+  </ul>
+</nav>

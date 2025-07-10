@@ -1,7 +1,65 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- TODO!: SEO!!! -->
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="{% if page.introduction %}{{ page.introduction | strip_html | strip }}{% else %}Enhance your monday.com experience with powerful tools and integrations. Our commitment is to help teams work smarter, faster, and more efficiently.{% endif %}">
+<meta name="keywords" content="monday.com, apps, integrations, automation, productivity, workdocs, text tools, find replace">
+<meta name="author" content="montools">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.introduction %}{{ page.introduction | strip_html | strip }}{% else %}Enhance your monday.com experience with powerful tools and integrations. Our commitment is to help teams work smarter, faster, and more efficiently.{% endif %}">
+<meta property="og:image" content="{% if page.image_path %}{{ site.url }}{{ page.image_path }}{% else %}{{ site.url }}/assets/images/montools.png{% endif %}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+<meta property="twitter:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="twitter:description" content="{% if page.introduction %}{{ page.introduction | strip_html | strip }}{% else %}Enhance your monday.com experience with powerful tools and integrations. Our commitment is to help teams work smarter, faster, and more efficiently.{% endif %}">
+<meta property="twitter:image" content="{% if page.image_path %}{{ site.url }}{{ page.image_path }}{% else %}{{ site.url }}/assets/images/montools.png{% endif %}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+<!-- JSON-LD Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{% if page.layout == 'solution' %}SoftwareApplication{% else %}Organization{% endif %}",
+  {% if page.layout == 'solution' %}
+  "name": "{{ page.title }}",
+  "description": "{{ page.introduction | strip_html | strip }}",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "{% if page.pricing.plans[0].monthly %}{{ page.pricing.plans[0].monthly }}{% else %}0{% endif %}",
+    "priceCurrency": "USD"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "montools",
+    "url": "{{ site.url }}"
+  }
+  {% else %}
+  "name": "montools",
+  "description": "Enhance your monday.com experience with powerful tools and integrations. Our commitment is to help teams work smarter, faster, and more efficiently.",
+  "url": "{{ site.url }}",
+  "logo": "{{ site.url }}/assets/images/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "montools@proton.me",
+    "contactType": "customer service"
+  },
+  "sameAs": [
+    "{{ site.url }}"
+  ]
+  {% endif %}
+}
+</script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap">
@@ -12,5 +70,5 @@
 <link rel="stylesheet" type="text/css" href="{{site.url}}/assets/css/site.css">
 <script src="{{ site.url }}/assets/js/site.js" crossorigin="anonymous"></script>
 
-<title>{{ site.title }}</title>
+<title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 <link rel="icon" type="image/x-icon" href="{{ site.url }}/assets/images/logo.ico">

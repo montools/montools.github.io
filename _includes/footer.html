@@ -1,6 +1,27 @@
 <footer class="footer">
   <div class="content has-text-centered">
-    <p class="is-size-5 has-text-light">Contact us:</p>
-    <p class="is-size-6">montools@proton.me</p>
+    <div class="columns">
+      <div class="column">
+        <h4 class="title is-5" style="color: turquoise;">montools</h4>
+        <p class="is-size-6">Enhancing your monday.com experience</p>
+      </div>
+      <div class="column">
+        <h5 class="title is-6" style="color: turquoise;">Quick Links</h5>
+        <p><a href="{{ site.url }}/">Home</a></p>
+        <p><a href="{{ site.url }}/solutions/">Solutions</a></p>
+        <p><a href="{{ site.url }}/about/">About</a></p>
+      </div>
+      <div class="column">
+        <h5 class="title is-6" style="color: turquoise;">Legal</h5>
+        <p><a href="{{ site.url }}/privacy/">Privacy Policy</a></p>
+        <p><a href="{{ site.url }}/solutions/find_and_replace/#terms">Terms of Service</a></p>
+      </div>
+      <div class="column">
+        <h5 class="title is-6" style="color: turquoise;">Contact</h5>
+        <p><a href="mailto:montools@proton.me">montools@proton.me</a></p>
+      </div>
+    </div>
+    <hr style="background-color: turquoise; height: 1px; margin: 2rem 0;">
+    <p class="is-size-7">© {{ site.time | date: "%Y" }} montools. All rights reserved.</p>
   </div>
 </footer>

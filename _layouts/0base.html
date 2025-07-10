@@ -8,7 +8,20 @@
   <body>
     {% include navbar.html %}
 
+    {% unless page.url == '/' %}
+    <section class="section" style="padding-top: 4rem; padding-bottom: 0;">
+      <div class="container">
+        {% include breadcrumb.html %}
+      </div>
+    </section>
+    {% endunless %}
+
     {{ content }}
+
+    <!-- Back to top button -->
+    <button id="back-to-top" title="Go to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
 
     {% include footer.html %}
   </body>

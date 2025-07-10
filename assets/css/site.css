@@ -48,6 +48,100 @@
     height: 5px;
   }
 
+  /* Back to top button */
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: turquoise;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  #back-to-top:hover {
+    background-color: #40e0d0;
+    transform: scale(1.1);
+  }
+
+  /* Breadcrumb styling */
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0.5rem 0;
+  }
+
+  .breadcrumb a {
+    color: turquoise;
+  }
+
+  .breadcrumb .is-active a {
+    color: white;
+  }
+
+  /* Enhanced mobile responsiveness */
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 2.5rem !important;
+    }
+    
+    .subtitle {
+      font-size: 1rem !important;
+    }
+    
+    .hero-body {
+      padding: 2rem 1.5rem !important;
+    }
+    
+    .card {
+      margin-bottom: 1rem;
+    }
+    
+    .columns {
+      display: block !important;
+    }
+    
+    .column {
+      width: 100% !important;
+      margin-bottom: 1rem;
+    }
+    
+    /* Adjust back to top button for mobile */
+    #back-to-top {
+      width: 45px;
+      height: 45px;
+      font-size: 18px;
+      bottom: 15px;
+      right: 15px;
+    }
+    
+    /* Footer improvements for mobile */
+    footer .columns {
+      display: block !important;
+    }
+    
+    footer .column {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .title {
+      font-size: 2rem !important;
+    }
+    
+    .hero-body {
+      padding: 1.5rem 1rem !important;
+    }
+  }
+
   #parallax-1 {
     background: url(https://source.unsplash.com/featured/?nature);
     background-attachment: fixed;
