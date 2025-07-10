@@ -12,21 +12,6 @@ This repository hosts the official website for **montools** - a collection of pr
 
 **🌐 Live Site:** [montools.github.io](https://montools.github.io)
 
-## Featured Applications
-
-### 🔍 Find & Replace
-Quick and accurate text search and replace functionality for monday.com Workdocs.
-- Case-sensitive search options
-- Preview before replace
-- Seamless integration with Workdocs
-
-### 🛠️ Text Tools for Workdocs
-Comprehensive text analysis and transformation suite for content creators.
-- Word, character, and sentence counting
-- Case transformations (UPPERCASE, lowercase, Title Case, etc.)
-- Reading time estimation
-- Built-in find and replace
-
 ## Technology Stack
 
 - **Framework:** Jekyll 3.10.0
@@ -38,7 +23,7 @@ Comprehensive text analysis and transformation suite for content creators.
 ## Local Development
 
 ### Prerequisites
-- Ruby (version 2.7+)
+- Ruby version 3.4.1
 - Bundler gem
 
 ### Setup
@@ -110,21 +95,6 @@ The site will be available at `http://localhost:4000`
 - Graceful degradation on older browsers
 - Accessibility-focused markup
 
-## Contributing
-
-We welcome contributions to improve the site! Here's how you can help:
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
-### Commit Guidelines
-- Use descriptive commit messages
-- Include co-author: `Co-Authored-By: Montools <montools@proton.me>`
-- Test locally before pushing
-
 ## Adding New Applications
 
 To add a new monday.com app to the site:
@@ -139,9 +109,7 @@ See existing app pages for reference structure.
 
 ## Privacy & Security
 
-- **Privacy First:** Apps operate entirely within monday.com
-- **No Data Collection:** We don't store or transmit user content externally
-- **Transparent Policies:** Clear privacy policies for each application
+- **Transparent Policies:** Clear privacy and data collection policies for each application
 - **Secure Hosting:** HTTPS enabled via GitHub Pages
 
 ## Support
